@@ -4,6 +4,16 @@ import com.bootcoding.project.model.Customer;
 import com.bootcoding.project.utils.*;
 
 public class CustomerService {
+
+    public Customer[] getAllCustomer() {
+        Customer[] customers = new Customer[100];
+        for(int i = 0; i < customers.length; i++){
+            Customer customer = createCustomer();
+            customers[i] = customer;
+        }
+        return customers;
+    }
+
     public Customer createCustomer() {
         Customer customer = new Customer();
         customer.setName(CustomerNameGenerator.getName());
@@ -21,12 +31,11 @@ public class CustomerService {
         System.out.println("customer address:" + customer.getDeliveryAddress());
         System.out.println("customer PhoneNumber:" + customer.getPhoneNumber());
 
-
     }
 
     public static void main(String[] args) {
         CustomerService cs = new CustomerService();
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 100; i++) {
             Customer customer = cs.createCustomer();
             cs.print(customer);
         }
