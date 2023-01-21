@@ -13,22 +13,26 @@ public class CustomerService {
         customer.setDeliveryAddress(AddressGenerator.getAddress());
         return customer;
     }
-        public void print(Customer customer) {
-            System.out.println("customer Name:" + customer.getName());
-            System.out.println("customer city:" + customer.getCity());
-            System.out.println("customer EmailId:" + customer.getEmailId());
-            System.out.println("customer address:" + customer.getDeliveryAddress());
-            System.out.println("customer PhoneNumber:" + customer.getPhoneNumber());
+
+    public void print(Customer customer) {
+        System.out.println("customer Name:" + customer.getName());
+        System.out.println("customer city:" + customer.getCity());
+        System.out.println("customer EmailId:" + customer.getEmailId());
+        System.out.println("customer address:" + customer.getDeliveryAddress());
+        System.out.println("customer PhoneNumber:" + customer.getPhoneNumber());
 
 
+    }
+
+    public static void main(String[] args) {
+        CustomerService cs = new CustomerService();
+        for (int i = 0; i < 10000000; i++) {
+            Customer customer = cs.createCustomer();
+            cs.print(customer);
         }
-            public static void main(String[] args){
-                CustomerService cs=new CustomerService();
-                Customer customer= cs.createCustomer();
-                cs.print(customer);
-            }
 
-        }
+    }
+}
         //1 object customer
         // propert
 
